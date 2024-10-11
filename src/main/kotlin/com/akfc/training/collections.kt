@@ -1,6 +1,23 @@
 package com.akfc.training.com.akfc.training
 
-class Man(val name: String, val age: Int)
+data class Man(val name: String, val age: Int)
+
+class Node<T>(var data: T) {
+    var left: Node<T>? = null
+    var right: Node<T>? = null
+}
+
+class BinarySearchTree<T : Comparable<T>> {
+    var root: Node<T>? = null
+
+    fun insert(value: T) {
+        TODO()
+    }
+
+    fun search(value: T): Boolean {
+        TODO()
+    }
+}
 
 fun main() {
     val mens = mutableListOf<Man>()
