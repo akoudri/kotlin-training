@@ -5,19 +5,13 @@ import java.util.concurrent.RecursiveTask
 
 fun main() {
     var total = 0L
-    var start = System.currentTimeMillis()
     for (i in 0..1_000_000_000) {
         total += i
     }
-    var duration = System.currentTimeMillis() - start
-    println("$total computed in $duration ms")
 
     val pool = ForkJoinPool.commonPool()
-    start = System.currentTimeMillis()
     total = pool.invoke(RecursiveSum(0, 1_000_000_000))
-    duration = System.currentTimeMillis() - start
     pool.shutdown()
-    println("$total computed in $duration ms")
 }
 
 class RecursiveSum(private val lo: Long, private val hi: Long) : RecursiveTask<Long>() {
