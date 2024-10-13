@@ -1,5 +1,10 @@
 package com.akfc.training.com.akfc.training
 
+
+val f: (Int) -> Int = { x -> x * x }
+
+val g: (Int) -> Int = { x -> x + 5 }
+
 fun double(x: Int): Int = x * 2
 fun square(x: Int): Int = x * x
 
