@@ -26,7 +26,7 @@ class Titanic {
         TODO()
     }
 
-    fun getCustomers(): List<Customer> = customers.toList()
+    fun getCustomers(): List<Customer> = TODO()
 }
 
 fun main() {
