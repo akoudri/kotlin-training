@@ -8,6 +8,8 @@ fun displayClassInfo(clazz: Class<*>) {
     clazz.kotlin.declaredMemberProperties.forEach { property ->
         println("- ${property.name}: ${property.returnType}")
     }
+    clazz.superclass.let { println(it.simpleName) }
+    clazz.interfaces.forEach { println(it.simpleName) }
 }
 
 fun main() {

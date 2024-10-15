@@ -1,14 +1,17 @@
 package com.akfc.training.com.akfc.training
 
-class Node<T>(var data: T) {
-    var left: Node<T>? = null
-    var right: Node<T>? = null
+interface Tree<T> {
+    fun insert(value: T)
+
+    fun search(value: T) : Boolean
 }
 
-class BinarySearchTree<T : Comparable<T>> {
-    var root: Node<T>? = null
+data class Node<T>(var data: T, var left: Node<T>? = null, var right : Node<T>? = null)
 
-    fun insert(value: T) {
+class BinarySearchTree<T : Comparable<T>> : Tree<T> {
+    private var root: Node<T>? = null
+
+    override  fun insert(value: T) {
         root = insertRecursive(root, value)
     }
 
@@ -26,7 +29,7 @@ class BinarySearchTree<T : Comparable<T>> {
         return current
     }
 
-    fun search(value: T): Boolean {
+    override fun search(value: T): Boolean {
         return searchRecursive(root, value)
     }
 
