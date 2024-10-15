@@ -65,7 +65,8 @@ fun main() {
     mens.add(Man("Albert", 41))
 
     // Sort by age and then by name
-    val sortedByAgeAndName = mens.sortedWith(compareBy<Man> { it.age }.thenBy { it.name })
+    // val sortedByAgeAndName = mens.sortedWith(compareBy<Man> { it.age }.thenBy { it.name })
+    val sortedByAgeAndName = mens.sorted()
     println("Sorted by age and name:")
     sortedByAgeAndName.forEach { println(it) }
 
