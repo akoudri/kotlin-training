@@ -1,8 +1,7 @@
 package com.akfc.training.com.akfc.training
 
+import java.io.File
 import java.util.regex.Pattern
-import java.nio.file.Files
-import java.nio.file.Path
 import java.util.*
 
 enum class Sex {
@@ -46,35 +45,30 @@ class Titanic {
     }
 
     private fun loadData() {
-        try {
-            Files.newBufferedReader(Path.of("src/main/resources/titanic.csv")).use { br ->
-                br.lineSequence().forEach { line ->
-                    val scan = Scanner(line).useDelimiter(";").useLocale(Locale.US)
-                    val pClass = scan.nextInt()
-                    val survived = scan.nextInt() != 0
-                    val name = scan.next()
-                    val sex = when (scan.next()) {
-                        "male" -> Sex.MALE
-                        else -> Sex.FEMALE
-                    }
-                    val age = when {
-                        scan.hasNextDouble() -> scan.nextDouble()
-                        scan.hasNextInt() -> scan.nextInt().toDouble()
-                        else -> -1.0
-                    }
-                    customers.add(Customer(pClass, survived, name, sex, age))
+        File("src/main/resources/titanic.csv").readLines().asSequence()
+            .forEach {
+                val scan = Scanner(it).useDelimiter(";").useLocale(Locale.US)
+                val pClass = scan.nextInt()
+                val survived = scan.nextInt() != 0
+                val name = scan.next()
+                val sex = when (scan.next()) {
+                    "male" -> Sex.MALE
+                    else -> Sex.FEMALE
                 }
+                val age = when {
+                    scan.hasNextDouble() -> scan.nextDouble()
+                    scan.hasNextInt() -> scan.nextInt().toDouble()
+                    else -> -1.0
+                }
+                customers.add(Customer(pClass, survived, name, sex, age))
             }
-        } catch (ex: Exception) {
-            ex.printStackTrace()
-        }
     }
 
-    fun head(n: Int) {
+    fun head(n: Int = 5) {
         customers.take(n).forEach(::println)
     }
 
-    fun tail(n: Int) {
+    fun tail(n: Int = 5) {
         customers.takeLast(n).forEach(::println)
     }
 
