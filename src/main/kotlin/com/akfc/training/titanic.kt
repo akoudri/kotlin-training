@@ -75,6 +75,7 @@ class Titanic {
     fun getCustomers(): List<Customer> = customers.toList()
 }
 
+/*
 fun main() {
     val t = Titanic()
     t.head(5)
@@ -119,4 +120,4 @@ fun main() {
                 it.fullName()?.get(0).equals("Miss", ignoreCase = true) }
         .sortedBy { it.age }
         .forEach(::println)
-}
+}*/

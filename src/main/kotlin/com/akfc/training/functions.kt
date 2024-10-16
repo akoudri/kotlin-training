@@ -39,6 +39,7 @@ fun average(numbers: List<Double>): Double =
 
 fun <A, B, C> compose(f: (B) -> C, g: (A) -> B): (A) -> C = { x -> f(g(x)) }
 
+/*
 fun main() {
     val doubleThenSquare = compose(::square, ::double)
     println(doubleThenSquare(3))
@@ -49,4 +50,4 @@ fun main() {
     myFilter(intArrayOf(2, 3, 4, 5)){ x -> x % 2 == 0}.forEach { println(it) }
 
     println(1009.isPrime())
-}
+}*/

@@ -2,6 +2,7 @@ package com.akfc.training.com.akfc.training
 
 import kotlinx.coroutines.*
 
+/*
 fun main() = runBlocking {
     var counter = 0
     val numberOfJobs = 100
@@ -20,4 +21,4 @@ fun main() = runBlocking {
 
     jobs.forEach { it.join() }
     println("Final counter value: $counter")
-}
+}*/

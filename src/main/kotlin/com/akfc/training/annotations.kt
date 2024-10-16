@@ -39,7 +39,7 @@ fun runTests(testClass: Any) {
         }
 }
 
-fun main() {
+/*fun main() {
     runTests(test1())
-}
+}*/
 

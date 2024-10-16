@@ -68,6 +68,7 @@ class Fibo {
     }
 }
 
+/*
 fun main() {
     val fibo = Fibo()
     val start = System.currentTimeMillis()
@@ -76,9 +77,11 @@ fun main() {
     println("Computed $res in $duration ms")
     fibo.displayEvenNumbers(200)
 
-    /*val start = System.currentTimeMillis()
+    */
+/*val start = System.currentTimeMillis()
     val res = fibo.getEvenNumbers(200)
     val duration = System.currentTimeMillis() - start
     println("Computed ${res.size} in $duration ms")
-    res.forEach { println(it) }*/
-}
+    res.forEach { println(it) }*//*
+
+}*/

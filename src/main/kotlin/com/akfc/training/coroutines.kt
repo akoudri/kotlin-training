@@ -20,21 +20,21 @@ suspend fun fetchUserPosts(userId: Int): String {
     return "User $userId posts"
 }
 
-suspend fun launchCoroutines() {
-    val job = Job()
-    val scope = CoroutineScope(job)
-
+suspend fun launchCoroutines() = coroutineScope {
     repeat(10) { i ->
-        scope.launch {
+        launch {
             val delay = Random.nextLong(1000L, 5000L)
             delay(delay)
             println("Coroutine $i finished after ${delay}ms")
         }
     }
-
-    job.join()
-    println("All coroutines have finished")
+    println("All coroutines have been launched")
 }
+
+/*fun main() = runBlocking {
+    launchCoroutines()
+    println("All coroutines have finished")
+}*/
 
 suspend fun simulateFileDownload(fileName: String): String {
     val downloadTime = Random.nextLong(500, 2000) // Simule un temps de téléchargement aléatoire entre 500ms et 2s
@@ -59,6 +59,11 @@ suspend fun downloadFilesInParallel() {
 
     println("Temps total de téléchargement : ${totalTime}ms")
 }
+
+/*fun main() = runBlocking {
+    downloadFilesInParallel()
+    println("All downloads have finished")
+}*/
 
 suspend fun simulateApiRequest(): String {
     return withTimeout(2000L) { // 2 secondes de timeout
@@ -112,12 +117,19 @@ suspend fun workerPool(workerCount: Int, tasks: List<Task>) = coroutineScope {
     channel.close()
 }
 
-/*
-fun main() = runBlocking {
-    GlobalScope.launch {
-        delayedMessage()
+/*fun main() {
+    runBlocking {
+        val job = GlobalScope.launch {
+            delayedMessage()
+        }
+        job.join()
     }
-    delay(1500) // Attendre un peu plus longtemps que le délai pour voir le message
+}*/
+
+/*suspend fun main() {
+    val job = GlobalScope.launch { delayedMessage() }
+    job.join()
+    //delay(1500)
 }*/
 
 /*
@@ -171,7 +183,7 @@ suspend fun main() {
     println("All tasks completed in $time ms")
 }*/
 
-fun main() = runBlocking {
+/*fun main() = runBlocking {
     val channel = Channel<Int>()
 
     launch {
@@ -188,4 +200,4 @@ fun main() = runBlocking {
     }
 
     println("All values received")
-}
+}*/

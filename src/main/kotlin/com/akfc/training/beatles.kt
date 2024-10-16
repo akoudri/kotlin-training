@@ -10,6 +10,7 @@ import javax.xml.transform.TransformerFactory
 import javax.xml.transform.stream.StreamSource
 import javax.xml.transform.stream.StreamResult
 
+/*
 fun main() {
     // Query to get the Beatles albums
     val query = """
@@ -37,4 +38,4 @@ fun main() {
     val outputTarget = StreamResult(File("src/main/resources/beatles_albums.html"))
     transformer.transform(xmlSource, outputTarget)
     println("HTML file generated: beatles_albums.html")
-}
+}*/

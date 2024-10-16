@@ -3,7 +3,7 @@ package com.akfc.training.com.akfc.training
 import java.util.concurrent.locks.Lock
 import java.util.concurrent.locks.ReentrantLock
 
-fun main() {
+/*fun main() {
     val fourchette1 = ReentrantLock()
     val fourchette2 = ReentrantLock()
     val fourchette3 = ReentrantLock()
@@ -11,7 +11,7 @@ fun main() {
     Philosopher("Platon", fourchette2, fourchette3).start()
     // Philosopher("Kant", fourchette3, fourchette1).start() // First case of DEADLOCK !!!
     Philosopher("Kant", fourchette1, fourchette3).start() // NO DEADLOCK
-}
+}*/
 
 class Philosopher(
     private val name: String,

@@ -25,7 +25,7 @@ class Circle(val radius: Double) : Shape {
     override fun area() = Math.PI * radius * radius
 }
 
-fun main() {
+/*fun main() {
     val shapes = listOf(
         Circle(10.0),
         Rectangle(5.0, 10.0),
@@ -33,4 +33,4 @@ fun main() {
     )
 
     shapes.forEach { println(it.area()) }
-}
+}*/

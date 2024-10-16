@@ -2,7 +2,7 @@ package com.akfc.training.com.akfc.training
 
 import kotlinx.coroutines.*
 
-fun main() = runBlocking {
+/*fun main() = runBlocking {
     println("Requesting operations")
     val results = (1..5).map { i ->
         async(Dispatchers.Default) {
@@ -13,7 +13,7 @@ fun main() = runBlocking {
     results.forEachIndexed { index, result ->
         println("Response $index = $result")
     }
-}
+}*/
 
 suspend fun performOperation(id: Int): Int {
     println("Performing operation $id")

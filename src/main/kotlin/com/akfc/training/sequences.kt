@@ -28,7 +28,7 @@ fun fibonacciSequence(maxValue: Int): Sequence<Int> {
     }
 }
 
-fun main() {
+/*fun main() {
 //    val sequence = generateSequence(1) { it + 1 }
 //    val result = sequence.take(10).toList()
 //    println(result)
@@ -40,4 +40,4 @@ fun main() {
 //    println(fibo3)
 //    generateSequence(1) { it + 1 }.take(10).map { it * it }.sum().let { println(it) }
     generateSequence(1) { it + 1 }.take(20).windowed(3, 2, true).forEach { println(it) }
-}
+}*/

@@ -5,6 +5,7 @@ import java.sql.DriverManager
 import java.sql.PreparedStatement
 import java.sql.ResultSet
 
+/*
 fun main() {
     // Modify this line to specify the path to your resources folder
     val url = "jdbc:sqlite:src/main/resources/man_database.db"
@@ -65,4 +66,4 @@ fun main() {
         // Ensure the connection is closed even if an error occurs
         connection?.close()
     }
-}
+}*/

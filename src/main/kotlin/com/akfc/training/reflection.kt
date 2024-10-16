@@ -12,9 +12,10 @@ fun displayClassInfo(clazz: Class<*>) {
     clazz.interfaces.forEach { println(it.simpleName) }
 }
 
+/*
 fun main() {
     // Get the class object for Rectangle
     val rectangleClass = Rectangle::class.java
     // Display properties and methods of Rectangle
     displayClassInfo(rectangleClass)
-}
+}*/

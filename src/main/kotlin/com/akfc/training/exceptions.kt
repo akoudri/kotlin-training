@@ -10,7 +10,7 @@ fun getInput(): String {
     return userInput
 }
 
-fun main() {
+/*fun main() {
     try {
         getInput()
     } catch (e: InvalidUserInputException) {
@@ -18,5 +18,5 @@ fun main() {
     } finally {
         println("Program finished")
     }
-}
+}*/
 

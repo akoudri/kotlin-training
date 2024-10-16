@@ -42,6 +42,6 @@ object DatabaseConnection {
     fun connect() = println("Connected to database")
 }
 
-fun main() {
+/*fun main() {
     DatabaseConnection.connect()
-}
+}*/

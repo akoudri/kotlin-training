@@ -55,7 +55,7 @@ data class Man(val name: String, val age: Int) : Comparable<Man> {
     }
 }
 
-fun main() {
+/*fun main() {
     val mens = mutableListOf<Man>()
     mens.add(Man("Michel", 32))
     mens.add(Man("Paul", 28))
@@ -91,4 +91,4 @@ fun main() {
     val found = bst.search(manToFind)
 
     println("Is $manToFind found? $found")
-}
+}*/
