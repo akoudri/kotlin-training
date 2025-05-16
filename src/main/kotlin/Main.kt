@@ -9,5 +9,9 @@ fun main() {
         .map { it * it }
         .toList()
 
-    val persons = List<Person>(10) { Person("Person $it", it) }
+    result.forEach { println(it) }
+
+    val persons = List<Person>(10) { Person(null, it) }
+
+    persons.forEach { println(it) }
 }

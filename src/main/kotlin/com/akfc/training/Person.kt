@@ -1,14 +1,19 @@
 package com.akfc.training.com.akfc.training
 
-class Person(val name: String, val age: Int) {
+import com.github.javafaker.Faker
+
+class Person(var name: String?, val age: Int) {
 
     var weight = 0.0
+    companion object {
+        val faker = Faker.instance()
+    }
 
     val fullName: String
         get() = "$name $age"
 
     init {
-        require(name.isNotBlank()) { "Name cannot be blank" }
+        if (name == null) name = faker.name().fullName()
         require(age >= 0) { "Age cannot be negative" }
     }
 
@@ -17,5 +22,9 @@ class Person(val name: String, val age: Int) {
     }
 
     fun isAdult() = age >= 18
+
+    override fun toString() : String {
+        return "Person $name with age $age"
+    }
 }
 
