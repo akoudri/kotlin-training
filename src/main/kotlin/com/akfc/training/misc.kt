@@ -30,10 +30,6 @@ fun addComparables(dest: MutableList<in Int>) {
 
 inline fun <reified T> isA(value: Any) = value is T
 
-inline fun foo(inlined: () -> Unit, noinline notInlined: () -> Unit) {
-    // ...
-}
-
 data class Point(val x: Int, val y: Int) {
     operator fun plus(other: Point) = Point(x + other.x, y + other.y)
 }
