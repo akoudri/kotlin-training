@@ -6,6 +6,9 @@ fun <T> display (value : T)
     println(value)
 }
 
+inline fun <reified T> List<Any>.filterType(): List<T> =
+    this.filter { it is T }.map { it as T }
+
 // Interfaces avec variance
 interface Producer<out T> {
     fun produce(): T

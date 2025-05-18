@@ -14,4 +14,8 @@ fun main() {
     val persons = List<Person>(10) { Person(null, it) }
 
     persons.forEach { println(it) }
+
+    val a = 5
+    val b = 3
+    println("La somme de $a et $b est ${a + b}.") // Affiche : La somme de 5 et 3 est 8.
 }
