@@ -132,16 +132,21 @@ suspend fun workerPool(workerCount: Int, tasks: List<Task>) = coroutineScope {
     //delay(1500)
 }*/
 
-/*
 fun main() = runBlocking {
     val userId = 1
 
-    val job1 = launch {
+    val handler = CoroutineExceptionHandler { _, exception ->
+        println("Caught $exception")
+    }
+
+    val job1 = launch(Dispatchers.Default + handler) {
         val userData = fetchUserData(userId)
+        delay(1500)
+        throw Exception("Oops!")
         println("User data: $userData")
     }
 
-    val job2 = launch {
+    val job2 = launch(Dispatchers.Default + handler) {
         val userPosts = fetchUserPosts(userId)
         println("User posts: $userPosts")
     }
@@ -150,10 +155,9 @@ fun main() = runBlocking {
     job2.join()
 
     println("All tasks completed")
-}*/
+}
 
-/*
-suspend fun main() {
+/*suspend fun main() {
     repeat(5) { // Répéter 5 fois pour voir différents résultats
         try {
             val result = simulateApiRequest()
@@ -183,7 +187,8 @@ suspend fun main() {
     println("All tasks completed in $time ms")
 }*/
 
-/*fun main() = runBlocking {
+/*
+fun main() = runBlocking {
     val channel = Channel<Int>()
 
     launch {

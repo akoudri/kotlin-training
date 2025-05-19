@@ -82,11 +82,11 @@ fun main() {
     println("-------------------")
     t.tail(5)
     println("-------------------")
-    val avg = t.getCustomers()
+    t.getCustomers()
         .filter { it.sex == Sex.MALE && it.age > 0 }
         .map { it.age }
         .average()
-    println("Age moyen des hommes : $avg")
+        .let { println(String.format("Age moyen des hommes : %.2f", it)) }
     println("-------------------")
     t.getCustomers()
         .take(5)
@@ -94,24 +94,26 @@ fun main() {
         .map { it.joinToString(" ") }
         .forEach(::println)
     println("-------------------")
-    val agePerSex = t.getCustomers()
+    t.getCustomers()
         .filter { it.age > 0 }
         .groupBy({ it.sex }, { it.age })
         .mapValues { it.value.average() }
-    println("Age moyen femmes: ${agePerSex[Sex.FEMALE]}")
-    println("Age moyen hommes: ${agePerSex[Sex.MALE]}")
+        .let {
+            println(String.format("Age moyen femmes: %.2f", it[Sex.FEMALE]))
+            println(String.format("Age moyen hommes: %.2f", it[Sex.MALE]))
+        }
     println("-------------------")
-    val agePerCategory = t.getCustomers().asSequence()
+    t.getCustomers().asSequence()
         .filter { it.age > 0 }
         .groupBy({ it.category() }, { it.age })
         .mapValues { it.value.average() }
-    agePerCategory.forEach { (k, v) -> println("$k : $v") }
+        .forEach { (k, v) -> println(String.format("%s : %.2f", k, v)) }
     println("-------------------")
-    val countPerCategory = t.getCustomers()
+    t.getCustomers()
         .filter { it.age > 0 }
         .groupBy { it.category() }
         .mapValues { it.value.size.toLong() }
-    countPerCategory.forEach { (k, v) -> println("$k : $v") }
+        .forEach { (k, v) -> println("$k : $v") }
     println("-------------------")
     t.getCustomers().asSequence()
         .filter { it.age >= 18 &&
