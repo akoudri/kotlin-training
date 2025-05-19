@@ -9,6 +9,23 @@ val g: (Int) -> Int = { x -> x + 5 }
 fun double(x: Int): Int = x * 2
 fun square(x: Int): Int = x * x
 
+fun applyOperation(x: Int, y: Int, op: (Int, Int) -> Int) : Int {
+    return op(x, y)
+}
+
+fun mesurerTemps(op : () -> Unit) : Long {
+    val start = System.currentTimeMillis()
+    op()
+    val duration = System.currentTimeMillis() - start
+    return duration
+}
+
+data class Vector(val x: Int, val y: Int) {
+    operator fun times(other: Vector) : Int {
+        return this.x * other.y - this.y * other.x
+    }
+}
+
 tailrec fun sumFromOneToN(n: Int, accumulator: Int = 0): Int =
     if (n == 0) accumulator else sumFromOneToN(n - 1, accumulator + n)
 
