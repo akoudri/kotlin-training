@@ -27,8 +27,13 @@ fun main() {
     println(response.body())
 
     // Save the XML response to a file
-    TODO()
+    File("src/main/resources/albums.xml").writeText(response.body())
 
     // Apply XSLT transformation
-    TODO()
+    val transformerFactory = TransformerFactory.newInstance()
+    val xsltSrc = StreamSource(File("src/main/resources/beatles_albums.xslt"))
+    val transformer = transformerFactory.newTransformer(xsltSrc)
+    val xmlSrc = StreamSource(File("src/main/resources/albums.xml"))
+    val html = StreamResult(File("src/main/resources/beatles.html"))
+    transformer.transform(xmlSrc, html)
 }

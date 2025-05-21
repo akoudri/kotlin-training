@@ -27,4 +27,10 @@ fun main() {
     mens.add(Man("Michel", 45))
     mens.add(Man("Paul", 53))
     mens.add(Man("Albert", 41))
+    val m = mens.sortedWith(compareBy<Man>{ it.age }.thenByDescending { it.name })
+    m.asSequence()
+        .filter { it.age in 28..41}
+        .forEach { println(it) }
+
+
 }
